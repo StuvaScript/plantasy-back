@@ -216,7 +216,7 @@ paths:
       requestBody:
         description: ""
         content:
-          application/json:
+          multipart/form-data:
             schema:
               $ref: "#/components/schemas/UpdatePlantEntryRequest"
             example:
@@ -513,12 +513,13 @@ components:
       properties:
         name:
           type: string
-        imageURL:
-          type: string
         notes:
           type: string
         location:
           type: string
+        file:
+          type: string
+          format: binary
       example:
         name: oak tree
         imageURL: www.plant-life.com
