@@ -14,30 +14,29 @@ This repo contains the **backend API** built with **Node.js** and **Express.js**
 
 ## ✨ Features
 
-- 🔑 **User Authentication** – JWT-based login & signup  
-- 🌍 **Public Observation Feed** – browse recent plant posts  
-- 📸 **Observation Posting** – upload plant photos (stored on Firebase) with name, location, and notes  
-- 🌿 **Plant Identification** – powered by perenual API integration   
-- 📜 **Activity Feed** – see your own plant observation history  
-- 🔎 **Search & Filter** – by plant name, location, or date  
-- 🧪 **Testing** – functional tests with Mocha, Chai, Chai HTTP, and Faker  
+- 🔑 **User Authentication** – JWT-based login & signup
+- 🌍 **Public Observation Feed** – browse recent plant posts
+- 📸 **Observation Posting** – upload plant photos (stored on Firebase) with name, location, and notes
+- 🌿 **Plant Identification** – powered by perenual API integration
+- 📜 **Activity Feed** – see your own plant observation history
+- 🔎 **Search & Filter** – by plant name, location, or date
+- 🧪 **Testing** – functional tests with Mocha, Chai, Chai HTTP, and Faker
 - 📖 **API Documentation** – via Swagger
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend Framework**: Node.js + Express.js  
-- **Database**: MongoDB (Atlas)  
-- **Storage**: Firebase (for images)  
-- **Authentication**: JWT  
-- **Middleware**: CORS, Helmet  
-- **API Docs**: Swagger  
-- **Testing**: Mocha, Chai, Chai HTTP, Faker  
+- **Backend Framework**: Node.js + Express.js
+- **Database**: MongoDB (Atlas)
+- **Storage**: Firebase (for images)
+- **Authentication**: JWT
+- **Middleware**: CORS, Helmet
+- **API Docs**: Swagger
+- **Testing**: Mocha, Chai, Chai HTTP, Faker
 - **API Client**: Postman (for manual testing)
 
 ---
-
 
 ## 📂 Project Structure
 
@@ -65,25 +64,31 @@ plantapp-backend/
 │── README.md
 
 ```
+
 ---
 
 ## ⚙️ Installation & Setup
+
 Clone the repo
+
 ```bash
 git clone https://github.com/Code-the-Dream-School/jj-practicum-team-1-back.git
 
 ```
+
 ---
 
 ## Install dependencies
+
 ```bash
 npm install
 ```
+
 ---
 
 ## Set up environment variables
-Create a .env file based on .env.example and add your keys:
 
+Create a .env file based on .env.example and add your keys:
 
 **MONGO_URI**=your_mongodb_connection
 
@@ -97,26 +102,33 @@ Create a .env file based on .env.example and add your keys:
 
 **PERENUAL_KEY**=value
 
-
 ## Run the server (dev mode)
+
 ```bash
 npm run dev
 ```
+
 ## Run tests
+
 ```bash
 npm run test
 ```
+
 ---
 
 ## 📬 API Usage
+
 You can explore endpoints via Swagger UI.
 Or test with Postman using the base URL:
+
 ```bash
 https://plantapp-2mp9.onrender.com/api/v1
 ```
+
 ---
 
 ## ✅ Core Endpoints
+
 Auth
 POST /api/v1/auth/register – Register new user
 
@@ -136,34 +148,76 @@ DELETE /api/v1/plants/:id – Delete observation (auth required)
 ---
 
 ## 🧪 Testing
+
 We use Mocha + Chai + Chai HTTP + Faker for functional and integration tests.
 
 Run all tests:
+
 ```bash
 npm run test
 ```
+
 ---
 
 ## 📸 Storage
+
 Plant observation images are stored in Firebase Storage.
 
 Plants metadata (name, notes, location, etc.) is stored in MongoDB.
 
 ---
 
+## 🧩 Schema
+
+### User Schema
+
+- name
+  - String
+  - required
+- email
+  - String
+  - required
+- password
+  - String
+  - required
+
+### Plant Schema
+
+- name
+  - String
+  - required
+- imageURL
+  - String
+- notes
+  - String
+- location
+  - String
+- createdBy
+  - ObjectId
+  - required
+
+---
+
 ## 🔐 Authentication
+
 JWT tokens are issued on login/register.
 
 Protected routes require Authorization: Bearer <token> in the header.
 
 ---
+
 ## 🌍 Third-Party API
+
 We integrate with the Perenual API for automatic plant identification.
 
 ---
+
 ## 👥 Contributors
+
 Jaguar Team 1(Code the Dream)
 
 ---
+
 ## 📜 License
+
 MIT License – feel free to use and contribute.
