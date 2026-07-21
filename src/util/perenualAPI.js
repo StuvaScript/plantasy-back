@@ -8,7 +8,7 @@ const perenualAPI = async (name, plantID) => {
   if (!PERENUAL_KEY) {
     throw new CustomAPIError(
       "No PERENUAL_KEY provided",
-      StatusCodes.BAD_REQUEST
+      StatusCodes.BAD_REQUEST,
     );
   }
 
@@ -16,7 +16,7 @@ const perenualAPI = async (name, plantID) => {
 
   if (plantID) {
     response = await axios.get(
-      `https://perenual.com/api/v2/species/details/${plantID}?key=${PERENUAL_KEY}`
+      `https://perenual.com/api/v2/species/details/${plantID}?key=${PERENUAL_KEY}`,
     );
 
     const { data } = response;
@@ -25,7 +25,7 @@ const perenualAPI = async (name, plantID) => {
   }
 
   response = await axios.get(
-    `https://perenual.com/api/v2/species-list?key=${PERENUAL_KEY}=${name}`
+    `https://perenual.com/api/v2/species-list?key=${PERENUAL_KEY}=${name}`,
   );
   const { data } = response;
 
@@ -39,6 +39,8 @@ const filterAllPlantData = (dataObj) => {
 
   dataObj.data.forEach((entry) => {
     const { id, common_name, scientific_name, default_image } = entry;
+
+    if (id > 3000) return; // The free Perenual API doesn't allow data for plants with ID's over 3000 so we filter them out here
 
     data.push({ id, common_name, scientific_name, default_image });
   });
